@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}CoinScreener{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'coinscreener/styles.css' %}" rel="stylesheet">
+        {% block script %}
+        {% endblock %}
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand">
+                    <img src="https://img2.pngindir.com/20180331/ulw/kisspng-the-c-programming-language-the-c-programming-lan-c-5ac02d5335d7c2.5041410815225439552206.jpg" height="30" width="30" alt="asdsa">
+                    CoinScreener
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <strong id="logged_username">{{ user.username }}</strong>
+                        </li>
+                    {% endif %}
+                        <li class="nav-item" id="home-button">
+                            <a class="nav-link active" aria-current="page">Home</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                            <li class="nav-item" id="portfolio-button">
+                                <a class="nav-link">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Log Out</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item" id="home-button">
+                                <a class="nav-link active" aria-current="page" href="/login">Log in</a>
+                            </li>
+                            <li class="nav-item" id="home-button">
+                                <a class="nav-link active" aria-current="page" href="/register">Register</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+
+                    <div class="input-group input-group-lg">
+                        {% csrf_token %}
+                        <input id="search-form" type="text" class="form-control" placeholder="Searh any asset" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button id="search-button" class="btn btn-outline-secondary" type="button">Search</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="body">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
+
+                        <!-- {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">My Portfolio</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'register' %}">Register</a>
+                            </li>
+                        {% endif %}
+
+                                                href="/portfolio" -->

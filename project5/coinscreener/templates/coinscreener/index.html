@@ -1,0 +1,115 @@
+{% extends "coinscreener/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div id="landing-page">
+        <h1 class="landing-page">Welcome <br>
+                                to <br>
+                                CoinScreener <br>
+                                Press <br>
+                                Home!</h1>
+    <div class="video-wrapper">
+        <video autoplay muted loop id="myVideo">
+            <source src="{% static 'coinscreener/Stock_Market_Background_Video.mp4' %}" type="video/mp4">
+        </video>
+    </div>
+    </div>
+
+    <div id="main-page"></div>
+
+    <div id="search-results"></div>
+
+    <div id="asset-detail">
+        <button id="back-to-main-page">Back to Main Page</button>
+        <div>
+            <div id="asset-header-area"> </div>
+
+            <div id="modal-area"> </div> <!-- modal window start, end -->
+            <button class="btn-open">Add transaction</button>
+
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container" id="tradingview-widget-container">
+                <div id="tradingview_17093"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+            </div>
+            <!-- TradingView Widget END -->
+
+            <div id="asset-description-area"></div>
+
+            <div id="asset-comment-area">
+                <h3>Comments</h3> <hr>
+
+                <div id="all-comments"></div>
+
+                <div class="form-floating" id="comment-form">
+                    <textarea class="form-control" form="postform" name="post_content" placeholder="Add a comment" id="comment-content" required></textarea>
+
+                    <label for="comment-type">I feel</label>
+                    <select id="comment-type" form="postform">
+                        <option value="bullish">Bullish</option>
+                        <option value="bearish">Bearish</option>
+                    </select>
+
+                    <form action="javascript:void(0);" method="post" id="postform">
+                        {% csrf_token %}
+                            <input class="btn btn-primary" type="submit" value="Add">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="portfolio-page">
+        <h1>My Portfolio</h1>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Avg. Price ($)</th>
+                <th scope="col">Current Price ($)</th>
+                <th scope="col">24h Change (%)</th>
+                <th scope="col">Profit/Loss ($)</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+          </table>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'coinscreener/coinscreener.js' %}">
+
+</script>
+{% endblock %}
+
+
+<!-- modal window begin -->
+                <!-- <section class="modal hidden">
+                    <div class="flex">
+                        <button class="btn-close">⨉</button>
+                    </div>
+                    <div>
+                        <h3 class="modal-heading">Transaction page</h3>
+                        <p>Add this token to your portfolio, or remove. Type in your transaction's buy or sell price and quantity.</p>
+                    </div>
+                    <form action="javascript:void(0);" id="transaction-form" method="POST">
+                        {% csrf_token %}
+                        <h4 class="modal-heading">Price:</h4>
+                        <input type="number" step="0.00001" id="price" placeholder="Price" required/>
+
+                        <h4 class="modal-heading">Quantity:</h4>
+                        <input type="number" id="quantity" step="0.0001" placeholder="Quantity" required/> <br>
+
+                        <h4 class="modal-heading">Transaction Type:</h4>
+                        <select class="form-select" id="transaction-type" style="margin-left:5%;" required>
+                            <option selected value="">Open select menu</option>
+                            <option value="Buy">Buy</option>
+                            <option value="Sell">Sell</option>
+                        </select> <br>
+                        <input type="submit" value="Apply" class="btn btn-primary" id="apply-transaction">
+                    </form>
+                </section>
+                <div class="overlay hidden"></div>  -->

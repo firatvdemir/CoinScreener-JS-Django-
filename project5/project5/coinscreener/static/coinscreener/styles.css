@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+body {
+    display: flex;
+    background-image: linear-gradient(to right, #ffffff, #f1f1f1, #e4e4e4, #d6d6d6, #c9c9c9);
+    flex-direction: column;
+    margin-left:5%;
+    margin-right:5%;
+    /* justify-content: center; */
+    color: #222;
+    position: relative;
+    min-height: 100vh;
+  }
+
+  #myVideo {
+    position: absolute;
+    bottom: 0;
+    right:0;
+    overflow: hidden;
+    z-index: -1;
+    transform: scaleX(-1.1);
+  }
+/* landing page starts  */
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:900&display=swap');
+
+.landing-page {
+  font-size: 10vw;
+  line-height: 8.5vw;
+  margin: 0;
+  margin-top: 25px;
+  font-family: "Segoe UI";
+  font-weight: 300 ;
+  color: #ff6b6b;
+}
+/* landing page finish */
+
+.comment_bubble {
+  background-color: #e6f0ff;
+  padding: 10px;
+  border-radius: 30px;
+  border-width: 2px;
+  margin-bottom: 10px;
+}
+
+.assetname, #home-button, #portfolio-button {
+    cursor: pointer;
+}
+
+#asset-header-area {
+    padding: 10px;
+    font-family:Bahnschrift;
+    font-weight: 200;
+}
+#asset-description-area {
+    padding: 10px;
+    font-family:Bahnschrift;
+    font-weight: 200;
+    font-size: 20px;
+}
+#asset-comment-area {
+  padding: 10px;
+  font-family:Bahnschrift;
+  font-weight: 200;
+  font-size: 20px;
+}
+.table {
+    font-family: Bahnschrift;
+    font-size: 23px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.modal {
+    display: block;
+    flex-direction: column;
+    margin-left: 30%;
+    margin-top: 10%;
+    width: 450px;
+    height: 450px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+  }
+
+  .modal .flex {
+    display: flex;
+    align-items: right;
+    justify-content: space-between;
+    margin-top:25px;
+  }
+
+  .modal input {
+    padding: 6px;
+    margin-left: 5%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9em;
+  }
+
+  .modal p{
+    font-size: 0.9rem;
+    color: #777;
+    margin-left: 5%;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+  }
+
+  .btn, .btn-open {
+    padding: 7px;
+    font-family: Bahnschrift;
+    font-weight: 400;
+    background-color: #0063cc;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1em;
+    margin-left: 10px;
+    margin-bottom: 5px;;
+    margin-top: 3px;
+  }
+  #back-to-main-page {
+    padding: 7px;
+    font-family: Bahnschrift;
+    font-weight: 400;
+    background-color: gray;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1em;
+    margin-left: 10px;
+    margin-bottom: 5px;;
+    margin-top: 3px;
+  }
+
+  .btn-close {
+    transform: translate(10px, -20px);
+    padding: 0.5rem 0.7rem;
+    background: #eee;
+    border-radius: 50%;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .modal-heading {
+    margin-left: 5%;
+  }
+
+  #search-form {
+    margin-left: 60px;
+  }
+
+  .nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Bahnschrift;
+    font-weight: 500;
+    color: black;
+  }

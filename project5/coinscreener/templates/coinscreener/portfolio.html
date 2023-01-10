@@ -1,0 +1,52 @@
+{% extends "coinscreener/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h1>My Portfolio</h1>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Avg. Price ($)</th>
+            <th scope="col">Current Price ($)</th>
+            <th scope="col">24h Change (%)</th>
+            <th scope="col">Profit/Loss ($)</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for key, value in assets.items %}
+            <tr id="asset_row">
+                <td>{{ key }}</td>
+                <td>{{ value.quantity }}</td>
+                <td>{{ value.avg_price }}</td>
+                <td>{{ value.current_price }}</td>
+
+                {% if value.change_24h > 0 %}
+                  <td style="color: #32e600;">{{ value.change_24h }}</td>
+                {% else%}
+                  <td style="color: red;">{{ value.change_24h }}</td>
+                {% endif %}
+
+                {% if value.profit_loss > 0 %}
+                  <td style="color: #32e600;">{{ value.profit_loss }}</td>
+                {% else%}
+                  <td style="color: red;">{{ value.profit_loss }}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+{% endblock %}
+
+{% block script %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('#asset_row').addEventListener('click', function() {
+      alert("tuşa bastın!");
+    });
+  });
+
+</script>
+{% endblock %}
+
